@@ -98,7 +98,7 @@
     }
     
     .logo img {
-      height: 40px;
+      height: 60px; /* Increased logo size */
       transition: var(--transition);
       filter: drop-shadow(0 0 5px rgba(42, 157, 143, 0.5));
     }
@@ -112,6 +112,7 @@
       margin-left: 5px;
       color: var(--text);
       font-weight: 600;
+      text-transform: none; /* Remove uppercase transformation */
     }
     
     nav ul {
@@ -212,7 +213,7 @@
       font-size: 4rem;
       margin-bottom: 20px;
       font-weight: 900;
-      text-transform: uppercase;
+      text-transform: none; /* Changed from uppercase to normal case */
       letter-spacing: 2px;
       background: var(--gradient);
       -webkit-background-clip: text;
@@ -599,7 +600,7 @@
       font-size: 1.5rem;
       font-weight: 800;
       margin-bottom: 10px;
-      text-transform: uppercase;
+      text-transform: none; /* Changed from uppercase to normal case */
       background: var(--gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -671,7 +672,7 @@
       font-size: 1.8rem;
       font-weight: 800;
       margin-bottom: 20px;
-      text-transform: uppercase;
+      text-transform: none; /* Changed from uppercase to normal case */
       background: var(--gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -841,6 +842,10 @@
       
       .nlm-family h2 {
         font-size: 2rem;
+      }
+      
+      .logo img {
+        height: 50px; /* Adjusted for mobile */
       }
     }
     
@@ -1021,7 +1026,7 @@
     <div class="container header-container">
       <a href="#" class="logo" onclick="showPage('home')">
         <img src="logo.png" alt="DoskiWaAfrica">
-        <span>DoskiWaAfrika</span>
+        <span class="logo-full-name">DoskiWaAfrika</span> <!-- Changed to use proper case -->
       </a>
       <nav>
         <ul>
@@ -1043,7 +1048,7 @@
             <img src="3.png" alt="DoskiWaAfrika">
           </div>
           <div class="hero-text">
-            <h1>DoskiWaAfrika</h1>
+            <h1>DoskiWaAfrika</h1> <!-- Changed to use proper case -->
             <p>
               An upcoming Afro and Deep House DJ/Producer from Koster, North-West, South Africa. Known for blending rich African rhythms with deep, emotive house grooves that move both hearts and feet.
             </p>
@@ -1066,7 +1071,7 @@
           <div class="release-info">
             <h3 class="release-title">Evil Eye EP</h3>
             <p class="release-description">
-             A 6-track EP that merges the rich rhythms of Afro House with the deep, rolling basslines of Tech. Built for the dancefloor, it’s a hypnotic journey—where percussive grooves meet dark, driving energy. Tight, powerful, and relentlessly rhythmic, this project showcases DoskiWaAfrika’s signature sound: raw, spiritual, and made to move bodies.
+             A 6-track EP that merges the rich rhythms of Afro House with the deep, rolling basslines of Tech. Built for the dancefloor, it's a hypnotic journey—where percussive grooves meet dark, driving energy. Tight, powerful, and relentlessly rhythmic, this project showcases DoskiWaAfrika's signature sound: raw, spiritual, and made to move bodies.
             </p>
             <div class="release-links">
               <a href="https://www.mediafire.com/file/huacucugcqqmr77/DoskiWaAfrika_-_Evil_Eye_EP.zip/file" class="btn btn-primary" target="_blank">Download EP</a>
@@ -1142,7 +1147,7 @@
           <div class="release-info">
             <h3 class="release-title">Evil Eye EP</h3>
             <p class="release-description">
-           A 6-track EP that merges the rich rhythms of Afro House with the deep, rolling basslines of Tech. Built for the dancefloor, it’s a hypnotic journey—where percussive grooves meet dark, driving energy. Tight, powerful, and relentlessly rhythmic, this project showcases DoskiWaAfrika’s signature sound: raw, spiritual, and made to move bodies.
+           A 6-track EP that merges the rich rhythms of Afro House with the deep, rolling basslines of Tech. Built for the dancefloor, it's a hypnotic journey—where percussive grooves meet dark, driving energy. Tight, powerful, and relentlessly rhythmic, this project showcases DoskiWaAfrika's signature sound: raw, spiritual, and made to move bodies.
             </p>
             <div class="release-links">
               <a href="https://www.mediafire.com/file/huacucugcqqmr77/DoskiWaAfrika_-_Evil_Eye_EP.zip/file" class="btn btn-primary" target="_blank">Download EP</a>
@@ -1162,7 +1167,7 @@
         <div class="about-container">
           <div class="about-card floating">
             <img src="3.png" alt="DoskiWaAfrika">
-            <h3>DoskiWaAfrika</h3>
+            <h3>DoskiWaAfrika</h3> <!-- Changed to use proper case -->
             <p>DJ & Producer specializing in Afro House and Deep House, bringing authentic African rhythms to the global electronic music scene.</p>
           </div>
           
