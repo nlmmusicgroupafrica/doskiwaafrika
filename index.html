@@ -91,16 +91,17 @@
       font-size: 1.8rem;
       text-transform: uppercase;
       letter-spacing: 1px;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
       position: relative;
     }
     
     .logo img {
-      height: 60px; /* Increased logo size */
+      height: 60px;
       transition: var(--transition);
-      filter: drop-shadow(0 0 5px rgba(42, 157, 143, 0.5));
+      /* Added white background and padding to make logo stand out */
+      background: white;
+      padding: 5px;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
     }
     
     .logo:hover img {
@@ -112,7 +113,11 @@
       margin-left: 5px;
       color: var(--text);
       font-weight: 600;
-      text-transform: none; /* Remove uppercase transformation */
+      text-transform: none;
+      /* Added gradient text for better visibility */
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
     
     nav ul {
@@ -213,7 +218,7 @@
       font-size: 4rem;
       margin-bottom: 20px;
       font-weight: 900;
-      text-transform: none; /* Changed from uppercase to normal case */
+      text-transform: none;
       letter-spacing: 2px;
       background: var(--gradient);
       -webkit-background-clip: text;
@@ -600,7 +605,7 @@
       font-size: 1.5rem;
       font-weight: 800;
       margin-bottom: 10px;
-      text-transform: none; /* Changed from uppercase to normal case */
+      text-transform: none;
       background: var(--gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -672,7 +677,7 @@
       font-size: 1.8rem;
       font-weight: 800;
       margin-bottom: 20px;
-      text-transform: none; /* Changed from uppercase to normal case */
+      text-transform: none;
       background: var(--gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -845,7 +850,7 @@
       }
       
       .logo img {
-        height: 50px; /* Adjusted for mobile */
+        height: 50px;
       }
     }
     
@@ -1026,7 +1031,7 @@
     <div class="container header-container">
       <a href="#" class="logo" onclick="showPage('home')">
         <img src="logo.png" alt="DoskiWaAfrica">
-        <span class="logo-full-name">DoskiWaAfrika</span> <!-- Changed to use proper case -->
+        <span class="logo-full-name">DoskiWaAfrika</span>
       </a>
       <nav>
         <ul>
@@ -1048,7 +1053,7 @@
             <img src="3.png" alt="DoskiWaAfrika">
           </div>
           <div class="hero-text">
-            <h1>DoskiWaAfrika</h1> <!-- Changed to use proper case -->
+            <h1>DoskiWaAfrika</h1>
             <p>
               An upcoming Afro and Deep House DJ/Producer from Koster, North-West, South Africa. Known for blending rich African rhythms with deep, emotive house grooves that move both hearts and feet.
             </p>
@@ -1143,11 +1148,24 @@
         </div>
         
         <div class="release-card">
+          <img src="1.png" alt="King Of Drum Tech Vol 02 Album" class="release-image">
+          <div class="release-info">
+            <h3 class="release-title">King Of Drum Tech Vol 02 Album</h3>
+            <p class="release-description">
+              From peak-time dancefloor destroyers to hypnotic tribal grooves, Vol 02 showcases a refined evolution of his production style. The album features unreleased originals, bold bootleg reworks, and collaborations that bridge the gap between traditional African percussion and futuristic electronic energy.
+            </p>
+            <div class="release-links">
+              <a href="https://www.mediafire.com/file/5hd7lj2cm9vy7g9/DoskiWaAfrika_-_King_Of_Drum_Tech_Vol_02_Album.zip/file" class="btn btn-primary" target="_blank">Download Album</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="release-card">
           <img src="4.png" alt="Evil Eye EP" class="release-image">
           <div class="release-info">
             <h3 class="release-title">Evil Eye EP</h3>
             <p class="release-description">
-           A 6-track EP that merges the rich rhythms of Afro House with the deep, rolling basslines of Tech. Built for the dancefloor, it's a hypnotic journey—where percussive grooves meet dark, driving energy. Tight, powerful, and relentlessly rhythmic, this project showcases DoskiWaAfrika's signature sound: raw, spiritual, and made to move bodies.
+              A 6-track EP that merges the rich rhythms of Afro House with the deep, rolling basslines of Tech. Built for the dancefloor, it's a hypnotic journey—where percussive grooves meet dark, driving energy. Tight, powerful, and relentlessly rhythmic, this project showcases DoskiWaAfrika's signature sound: raw, spiritual, and made to move bodies.
             </p>
             <div class="release-links">
               <a href="https://www.mediafire.com/file/huacucugcqqmr77/DoskiWaAfrika_-_Evil_Eye_EP.zip/file" class="btn btn-primary" target="_blank">Download EP</a>
@@ -1167,7 +1185,7 @@
         <div class="about-container">
           <div class="about-card floating">
             <img src="3.png" alt="DoskiWaAfrika">
-            <h3>DoskiWaAfrika</h3> <!-- Changed to use proper case -->
+            <h3>DoskiWaAfrika</h3>
             <p>DJ & Producer specializing in Afro House and Deep House, bringing authentic African rhythms to the global electronic music scene.</p>
           </div>
           
