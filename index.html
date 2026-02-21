@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
-    /* (styles identical to original, no changes needed) */
+    /* ========== ROOT & GLOBAL ========== */
     :root {
       --primary: #0A2424;
       --secondary: #2A9D8F;
@@ -24,1019 +24,245 @@
       --border: rgba(42, 157, 143, 0.4);
       --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
       --gradient: linear-gradient(135deg, var(--light-blue), var(--light-green));
-      --blue-glow: 0 0 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(42, 157, 143, 0.5), 0 0 15px rgba(42, 157, 143, 0.3);
-      --accent-glow: 0 0 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(233, 196, 106, 0.5), 0 0 15px rgba(233, 196, 106, 0.3);
+      --blue-glow: 0 0 5px rgba(255,255,255,0.7), 0 0 10px rgba(42,157,143,0.5), 0 0 15px rgba(42,157,143,0.3);
+      --accent-glow: 0 0 5px rgba(255,255,255,0.7), 0 0 10px rgba(233,196,106,0.5), 0 0 15px rgba(233,196,106,0.3);
     }
     
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     
     body {
-      font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+      font-family: 'Montserrat', sans-serif;
       color: var(--text);
       background-color: var(--bg);
       line-height: 1.6;
       overflow-x: hidden;
-      background-image: 
-        radial-gradient(circle at 20% 30%, rgba(42, 157, 143, 0.15) 0%, transparent 40%),
-        radial-gradient(circle at 80% 70%, rgba(138, 177, 125, 0.15) 0%, transparent 40%);
+      background-image: radial-gradient(circle at 20% 30%, rgba(42,157,143,0.15) 0%, transparent 40%),
+                        radial-gradient(circle at 80% 70%, rgba(138,177,125,0.15) 0%, transparent 40%);
     }
     
-    a {
-      color: inherit;
-      text-decoration: none;
-      transition: var(--transition);
-    }
+    a { color: inherit; text-decoration: none; transition: var(--transition); }
+    img { max-width: 100%; height: auto; display: block; }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
     
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-    
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    
-    /* Header */
+    /* ========== HEADER ========== */
     header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(10, 36, 36, 0.95);
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-      padding: 15px 0;
-      border-bottom: 1px solid var(--border);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      position: fixed; top: 0; left: 0; width: 100%;
+      background: rgba(10,36,36,0.95); backdrop-filter: blur(10px); z-index: 1000;
+      padding: 15px 0; border-bottom: 1px solid var(--border); box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     }
-    
-    .header-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
+    .header-container { display: flex; justify-content: space-between; align-items: center; }
     .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 900;
-      font-size: 1.8rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      position: relative;
+      display: flex; align-items: center; gap: 10px; font-weight: 900; font-size: 1.8rem;
+      text-transform: uppercase; letter-spacing: 1px;
     }
-    
     .logo img {
-      height: 60px;
-      transition: var(--transition);
-      /* Added white background and padding to make logo stand out */
-      background: white;
-      padding: 5px;
-      border-radius: 50%;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+      height: 60px; transition: var(--transition); background: white; padding: 5px;
+      border-radius: 50%; box-shadow: 0 0 10px rgba(255,255,255,0.7);
     }
-    
-    .logo:hover img {
-      transform: rotate(10deg) scale(1.1);
-    }
-    
+    .logo:hover img { transform: rotate(10deg) scale(1.1); }
     .logo-full-name {
-      font-size: 1.2rem;
-      margin-left: 5px;
-      color: var(--text);
-      font-weight: 600;
-      text-transform: none;
-      /* Added gradient text for better visibility */
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      font-size: 1.2rem; margin-left: 5px; font-weight: 600; text-transform: none;
+      background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
-    
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 30px;
-    }
-    
+    nav ul { display: flex; list-style: none; gap: 30px; }
     nav a {
-      font-weight: 600;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--light-text);
-      position: relative;
-      padding: 5px 0;
+      font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;
+      color: var(--light-text); padding: 5px 0; position: relative;
     }
-    
     nav a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--gradient);
-      transition: var(--transition);
+      content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px;
+      background: var(--gradient); transition: var(--transition);
     }
+    nav a:hover { color: var(--accent); }
+    nav a:hover::after { width: 100%; }
     
-    nav a:hover {
-      color: var(--accent);
-    }
-    
-    nav a:hover::after {
-      width: 100%;
-    }
-    
-    /* Hero Section */
+    /* ========== HERO ========== */
     .hero {
-      padding: 180px 0 100px;
-      text-align: center;
-      background: linear-gradient(rgba(10, 36, 36, 0.9), rgba(10, 36, 36, 0.9));
-      background-size: cover;
-      background-position: center;
-      position: relative;
-      overflow: hidden;
+      padding: 180px 0 100px; text-align: center;
+      background: linear-gradient(rgba(10,36,36,0.9), rgba(10,36,36,0.9));
+      position: relative; overflow: hidden;
     }
-    
     .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: 
-        radial-gradient(circle at 20% 30%, rgba(42, 157, 143, 0.2) 0%, transparent 30%),
-        radial-gradient(circle at 80% 70%, rgba(138, 177, 125, 0.2) 0%, transparent 30%);
-      z-index: 1;
+      content: ''; position: absolute; top:0; left:0; width:100%; height:100%;
+      background: radial-gradient(circle at 20% 30%, rgba(42,157,143,0.2) 0%, transparent 30%),
+                  radial-gradient(circle at 80% 70%, rgba(138,177,125,0.2) 0%, transparent 30%);
+      z-index:1;
     }
-    
-    .hero .container {
-      position: relative;
-      z-index: 2;
-    }
-    
-    .hero-content {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 50px;
-      flex-wrap: wrap;
-    }
-    
-    .hero-image {
-      flex: 1;
-      max-width: 400px;
-      animation: float 6s ease-in-out infinite;
-    }
-    
+    .hero .container { position: relative; z-index:2; }
+    .hero-content { display: flex; align-items: center; justify-content: center; gap:50px; flex-wrap: wrap; }
+    .hero-image { flex:1; max-width:400px; animation: float 6s ease-in-out infinite; }
     .hero-image img {
-      width: 100%;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 30px rgba(42, 157, 143, 0.3);
-      border: 3px solid transparent;
-      background: var(--gradient) padding-box, var(--gradient) border-box;
-      background-origin: border-box;
-      background-clip: padding-box, border-box;
+      width:100%; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,0.5), 0 0 30px rgba(42,157,143,0.3);
+      border:3px solid transparent; background: var(--gradient) padding-box, var(--gradient) border-box;
+      background-origin: border-box; background-clip: padding-box, border-box;
     }
-    
-    .hero-text {
-      flex: 1;
-      min-width: 300px;
-      text-align: left;
-    }
-    
+    .hero-text { flex:1; min-width:300px; text-align:left; }
     .hero h1 {
-      font-size: 4rem;
-      margin-bottom: 20px;
-      font-weight: 900;
-      text-transform: none;
-      letter-spacing: 2px;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-      animation: fadeInDown 1s ease;
+      font-size:4rem; margin-bottom:20px; font-weight:900; letter-spacing:2px;
+      background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      text-shadow:0 5px 15px rgba(0,0,0,0.3); animation: fadeInDown 1s ease;
     }
-    
-    .hero p {
-      max-width: 700px;
-      margin: 0 auto 30px;
-      color: var(--light-text);
-      font-size: 1.1rem;
-      animation: fadeIn 1.5s ease;
-    }
-    
+    .hero p { max-width:700px; margin:0 auto 30px; color:var(--light-text); font-size:1.1rem; animation:fadeIn 1.5s ease; }
     .btn {
-      display: inline-block;
-      padding: 15px 35px;
-      border-radius: 50px;
-      font-weight: 700;
-      margin: 0 10px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-size: 0.9rem;
-      transition: var(--transition);
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-      border: none;
-      cursor: pointer;
+      display: inline-block; padding: 15px 35px; border-radius: 50px; font-weight: 700; margin: 0 10px;
+      text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; transition: var(--transition);
+      position: relative; overflow: hidden; z-index: 1; border: none; cursor: pointer;
     }
-    
     .btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 0;
-      height: 100%;
-      background: var(--gradient);
-      transition: var(--transition);
-      z-index: -1;
+      content: ''; position: absolute; top:0; left:0; width:0; height:100%;
+      background: var(--gradient); transition: var(--transition); z-index:-1;
     }
+    .btn:hover::before { width:100%; }
+    .btn-primary { background: var(--gradient); color: white; box-shadow: 0 5px 15px rgba(42,157,143,0.3); }
+    .btn-primary:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(42,157,143,0.4), var(--blue-glow); }
+    .btn-outline { border: 2px solid var(--accent); color: var(--accent); background: transparent; }
+    .btn-outline:hover { background: var(--accent); color: var(--primary); transform: translateY(-5px); box-shadow: 0 10px 20px rgba(233,196,106,0.3), var(--accent-glow); }
     
-    .btn:hover::before {
-      width: 100%;
-    }
-    
-    .btn-primary {
-      background: var(--gradient);
-      color: white;
-      box-shadow: 0 5px 15px rgba(42, 157, 143, 0.3);
-    }
-    
-    .btn-primary:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(42, 157, 143, 0.4), var(--blue-glow);
-      color: white;
-    }
-    
-    .btn-outline {
-      border: 2px solid var(--accent);
-      color: var(--accent);
-      background: transparent;
-    }
-    
-    .btn-outline:hover {
-      background: var(--accent);
-      color: var(--primary);
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(233, 196, 106, 0.3), var(--accent-glow);
-    }
-    
-    /* Sections */
-    .section {
-      padding: 100px 0;
-      position: relative;
-    }
-    
+    /* ========== SECTIONS ========== */
+    .section { padding: 100px 0; position: relative; }
     .section-title {
-      text-align: center;
-      margin-bottom: 60px;
-      font-size: 2.5rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      position: relative;
-      display: inline-block;
+      text-align: center; margin-bottom: 60px; font-size: 2.5rem; font-weight: 900; text-transform: uppercase;
+      letter-spacing: 2px; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      position: relative; display: inline-block;
     }
-    
     .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 4px;
-      background: var(--gradient);
-      border-radius: 2px;
+      content: ''; position: absolute; bottom:-10px; left:50%; transform:translateX(-50%);
+      width:80px; height:4px; background: var(--gradient); border-radius:2px;
     }
     
-    /* About Section */
-    .about-container {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
-    }
-    
+    /* about cards */
+    .about-container { display: flex; justify-content: center; gap:30px; flex-wrap: wrap; }
     .about-card {
-      flex: 1;
-      min-width: 250px;
-      max-width: 300px;
-      text-align: center;
-      padding: 40px 30px;
-      background: var(--card-bg);
-      border-radius: 15px;
-      transition: var(--transition);
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-      border: 1px solid var(--border);
-      backdrop-filter: blur(10px);
+      flex:1; min-width:250px; max-width:300px; text-align: center; padding:40px 30px;
+      background: var(--card-bg); border-radius:15px; transition: var(--transition);
+      box-shadow:0 5px 20px rgba(0,0,0,0.2); border:1px solid var(--border); backdrop-filter:blur(10px);
     }
-    
-    .about-card:hover {
-      transform: translateY(-10px) scale(1.03);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(42, 157, 143, 0.2);
-    }
-    
+    .about-card:hover { transform: translateY(-10px) scale(1.03); box-shadow:0 15px 30px rgba(0,0,0,0.3), 0 0 20px rgba(42,157,143,0.2); }
     .about-card img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin: 0 auto 20px;
-      border: 3px solid transparent;
-      background: var(--gradient) padding-box, var(--gradient) border-box;
-      background-origin: border-box;
-      background-clip: padding-box, border-box;
+      width:120px; height:120px; border-radius:50%; object-fit:cover; margin:0 auto 20px;
+      border:3px solid transparent; background: var(--gradient) padding-box, var(--gradient) border-box;
+      background-origin: border-box; background-clip: padding-box, border-box;
     }
     
+    /* mother tribute */
     .mother-tribute {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 40px;
-      margin: 60px auto;
-      max-width: 900px;
-      background: var(--card-bg);
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-      border: 1px solid var(--border);
-      backdrop-filter: blur(10px);
-      position: relative;
-      overflow: hidden;
+      display: flex; align-items: center; justify-content: center; gap:40px; margin:60px auto; max-width:900px;
+      background: var(--card-bg); padding:40px; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,0.3);
+      border:1px solid var(--border); backdrop-filter:blur(10px); position: relative; overflow: hidden;
     }
-    
     .mother-tribute::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at top right, rgba(42, 157, 143, 0.1) 0%, transparent 70%);
-      z-index: 0;
+      content:''; position:absolute; top:0; left:0; width:100%; height:100%;
+      background: radial-gradient(circle at top right, rgba(42,157,143,0.1) 0%, transparent 70%); z-index:0;
     }
-    
     .mother-tribute img {
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid transparent;
-      background: var(--gradient) padding-box, var(--gradient) border-box;
-      background-origin: border-box;
-      background-clip: padding-box, border-box;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
-      position: relative;
-      z-index: 1;
-      transition: var(--transition);
+      width:220px; height:220px; border-radius:50%; object-fit:cover;
+      border:4px solid transparent; background: var(--gradient) padding-box, var(--gradient) border-box;
+      background-origin: border-box; background-clip: padding-box, border-box;
+      box-shadow:0 5px 20px rgba(0,0,0,0.4); position: relative; z-index:1; transition: var(--transition);
     }
+    .mother-tribute:hover img { transform: scale(1.05); box-shadow:0 8px 25px rgba(42,157,143,0.4); }
+    .mother-tribute-content { flex:1; position: relative; z-index:1; }
+    .mother-tribute p { font-size:1.8rem; color:var(--light-blue); font-weight:800; text-align:center; margin-bottom:15px; text-shadow:0 2px 5px rgba(0,0,0,0.3); }
+    .mother-tribute .title { font-size:1.2rem; color:var(--light-green); text-align:center; font-weight:600; }
     
-    .mother-tribute:hover img {
-      transform: scale(1.05);
-      box-shadow: 0 8px 25px rgba(42, 157, 143, 0.4);
-    }
-    
-    .mother-tribute-content {
-      flex: 1;
-      position: relative;
-      z-index: 1;
-    }
-    
-    .mother-tribute p {
-      font-size: 1.8rem;
-      color: var(--light-blue);
-      font-weight: 800;
-      text-align: center;
-      margin-bottom: 15px;
-      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    }
-    
-    .mother-tribute .title {
-      font-size: 1.2rem;
-      color: var(--light-green);
-      text-align: center;
-      font-weight: 600;
-    }
-    
-    /* NLM Family Section */
-    .nlm-family {
-      text-align: center;
-      padding: 80px 0;
-      background: var(--card-bg);
-      position: relative;
-      overflow: hidden;
-    }
-    
+    /* NLM family */
+    .nlm-family { text-align: center; padding:80px 0; background: var(--card-bg); position: relative; overflow: hidden; }
     .nlm-family::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at center, rgba(42, 157, 143, 0.1) 0%, transparent 70%);
-      z-index: 0;
+      content:''; position:absolute; top:0; left:0; width:100%; height:100%;
+      background: radial-gradient(circle at center, rgba(42,157,143,0.1) 0%, transparent 70%); z-index:0;
     }
-    
-    .nlm-family h2 {
-      font-size: 3rem;
-      margin-bottom: 30px;
-      font-weight: 900;
-      text-transform: uppercase;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      position: relative;
-      z-index: 1;
-    }
-    
-    .nlm-family p {
-      max-width: 800px;
-      margin: 0 auto 40px;
-      font-size: 1.2rem;
-      color: var(--light-text);
-      position: relative;
-      z-index: 1;
-    }
-    
-    .family-members {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-      margin-top: 40px;
-      position: relative;
-      z-index: 1;
-    }
-    
-    .family-member {
-      width: 200px;
-      text-align: center;
-    }
-    
+    .nlm-family h2 { font-size:3rem; margin-bottom:30px; font-weight:900; text-transform:uppercase; background:var(--gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent; position:relative; z-index:1; }
+    .nlm-family p { max-width:800px; margin:0 auto 40px; font-size:1.2rem; color:var(--light-text); position:relative; z-index:1; }
+    .family-members { display:flex; justify-content:center; gap:40px; flex-wrap:wrap; margin-top:40px; position:relative; z-index:1; }
+    .family-member { width:200px; text-align:center; }
     .family-member img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin: 0 auto 20px;
-      border: 3px solid transparent;
-      background: var(--gradient) padding-box, var(--gradient) border-box;
-      background-origin: border-box;
-      background-clip: padding-box, border-box;
-      transition: var(--transition);
+      width:150px; height:150px; border-radius:50%; object-fit:cover; margin:0 auto 20px;
+      border:3px solid transparent; background: var(--gradient) padding-box, var(--gradient) border-box;
+      background-origin: border-box; background-clip: padding-box, border-box; transition: var(--transition);
     }
+    .family-member:hover img { transform:scale(1.1); box-shadow:0 0 20px rgba(42,157,143,0.5); }
+    .family-member h3 { font-size:1.2rem; margin-bottom:10px; color:var(--light-green); }
+    .family-member p { color:var(--light-text); font-size:0.9rem; }
     
-    .family-member:hover img {
-      transform: scale(1.1);
-      box-shadow: 0 0 20px rgba(42, 157, 143, 0.5);
-    }
-    
-    .family-member h3 {
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-      color: var(--light-green);
-    }
-    
-    .family-member p {
-      color: var(--light-text);
-      font-size: 0.9rem;
-    }
-    
-    /* Artists Section */
-    .artists-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 40px;
-    }
-    
-    .artist-card {
-      width: 280px;
-      background: var(--card-bg);
-      border-radius: 15px;
-      overflow: hidden;
-      transition: var(--transition);
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-      border: 1px solid var(--border);
-      backdrop-filter: blur(10px);
-      position: relative;
-    }
-    
-    .artist-card:hover {
-      transform: translateY(-10px) scale(1.03);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(138, 177, 125, 0.2);
-    }
-    
-    .artist-image-container {
-      position: relative;
-      overflow: hidden;
-      height: 350px;
-    }
-    
-    .artist-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: var(--transition);
-    }
-    
-    .artist-card:hover .artist-image {
-      transform: scale(1.1);
-    }
-    
-    .artist-social {
-      position: absolute;
-      bottom: 20px;
-      left: 0;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      opacity: 0;
-      transition: var(--transition);
-    }
-    
-    .artist-card:hover .artist-social {
-      opacity: 1;
-    }
-    
-    .artist-social a {
-      width: 40px;
-      height: 40px;
-      background: var(--gradient);
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: var(--transition);
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-    }
-    
-    .artist-social a:hover {
-      transform: translateY(-5px) scale(1.1);
-      box-shadow: 0 5px 15px rgba(42, 157, 143, 0.4);
-    }
-    
-    .artist-info {
-      padding: 25px;
-      text-align: center;
-    }
-    
-    .artist-name {
-      font-size: 1.5rem;
-      font-weight: 800;
-      margin-bottom: 10px;
-      text-transform: none;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      position: relative;
-      display: inline-block;
-    }
-    
-    .artist-name::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 40px;
-      height: 3px;
-      background: var(--gradient);
-      border-radius: 2px;
-    }
-    
-    .artist-bio {
-      color: var(--light-text);
-      line-height: 1.7;
-      margin-bottom: 15px;
-      font-size: 0.95rem;
-    }
-    
-    .artist-genre {
-      display: inline-block;
-      padding: 5px 15px;
-      background: rgba(138, 177, 125, 0.1);
-      color: var(--light-green);
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      border: 1px solid rgba(138, 177, 125, 0.3);
-    }
-    
-    /* Releases Section */
+    /* release cards */
     .release-card {
-      max-width: 800px;
-      margin: 0 auto 40px;
-      background: var(--card-bg);
-      border-radius: 15px;
-      overflow: hidden;
-      display: flex;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-      transition: var(--transition);
-      border: 1px solid var(--border);
-      backdrop-filter: blur(10px);
+      max-width:800px; margin:0 auto 40px; background: var(--card-bg); border-radius:15px; overflow:hidden;
+      display:flex; box-shadow:0 5px 20px rgba(0,0,0,0.2); transition: var(--transition);
+      border:1px solid var(--border); backdrop-filter:blur(10px);
     }
+    .release-card:hover { transform:translateY(-5px); box-shadow:0 15px 30px rgba(0,0,0,0.3), 0 0 20px rgba(42,157,143,0.2); }
+    .release-image { width:300px; height:auto; object-fit:cover; }
+    .release-info { padding:30px; flex:1; }
+    .release-title { font-size:1.8rem; font-weight:800; margin-bottom:15px; background:var(--gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .release-description { color:var(--light-text); margin-bottom:20px; line-height:1.7; }
+    .release-links { display:flex; gap:15px; margin-top:25px; }
     
-    .release-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(42, 157, 143, 0.2);
-    }
-    
-    .release-image {
-      width: 300px;
-      height: auto;
-      object-fit: cover;
-    }
-    
-    .release-info {
-      padding: 30px;
-      flex: 1;
-    }
-    
-    .release-title {
-      font-size: 1.8rem;
-      font-weight: 800;
-      margin-bottom: 20px;
-      text-transform: none;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    
-    .release-description {
-      color: var(--light-text);
-      margin-bottom: 20px;
-      line-height: 1.7;
-    }
-    
-    .release-links {
-      display: flex;
-      gap: 15px;
-      margin-top: 30px;
-    }
-    
-    /* Footer */
-    footer {
-      background: rgba(10, 36, 36, 0.95);
-      color: var(--text);
-      padding: 60px 0 30px;
-      text-align: center;
-      position: relative;
-      border-top: 1px solid var(--border);
-    }
-    
-    footer::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 1px;
-      background: var(--gradient);
-    }
-    
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin: 30px 0;
-    }
-    
-    .social-links a {
-      color: var(--light-text);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-size: 0.9rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      transition: var(--transition);
-    }
-    
-    .social-links a:hover {
-      color: var(--accent);
-      transform: translateY(-3px);
-    }
-    
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin-bottom: 30px;
-      flex-wrap: wrap;
-    }
-    
-    .footer-links a {
-      color: var(--light-text);
-      font-size: 0.9rem;
-      transition: var(--transition);
-    }
-    
-    .footer-links a:hover {
-      color: var(--accent);
-      transform: translateY(-3px);
-    }
-    
-    .email-link {
-      word-break: break-all;
-      color: var(--accent);
-      font-weight: 600;
-    }
-    
-    /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    
-    @keyframes fadeInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-    
-    /* Responsive */
-    @media (max-width: 992px) {
-      .release-card {
-        flex-direction: column;
-      }
-      
-      .release-image {
-        width: 100%;
-        height: 300px;
-      }
-      
-      .hero-content {
-        flex-direction: column;
-        text-align: center;
-      }
-      
-      .hero-text {
-        text-align: center;
-      }
-    }
-    
-    @media (max-width: 768px) {
-      .header-container {
-        flex-direction: column;
-        gap: 20px;
-      }
-      
-      nav ul {
-        gap: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      
-      .hero {
-        padding: 150px 0 80px;
-      }
-      
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-      
-      .section {
-        padding: 80px 0;
-      }
-      
-      .about-card {
-        min-width: 100%;
-      }
-      
-      .mother-tribute {
-        flex-direction: column;
-        text-align: center;
-      }
-      
-      .logo-full-name {
-        display: none;
-      }
-      
-      .nlm-family h2 {
-        font-size: 2rem;
-      }
-      
-      .logo img {
-        height: 50px;
-      }
-    }
-    
-    /* Floating elements animation */
-    .floating {
-      animation: float 6s ease-in-out infinite;
-    }
-    
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-15px); }
-      100% { transform: translateY(0px); }
-    }
-    
-    /* Page content styles */
-    .page-content {
-      display: none;
-      animation: fadeIn 0.5s ease;
-    }
-    
-    .page-content.active {
-      display: block;
-    }
-    
-    /* Music Platforms Section */
-    .music-platforms {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin: 40px 0;
-      flex-wrap: wrap;
-    }
-    
+    /* music platforms */
+    .music-platforms { display:flex; justify-content:center; gap:30px; margin:40px 0; flex-wrap:wrap; }
     .platform-card {
-      background: var(--card-bg);
-      border-radius: 15px;
-      padding: 25px;
-      text-align: center;
-      width: 200px;
-      transition: var(--transition);
-      border: 1px solid var(--border);
-      backdrop-filter: blur(10px);
+      background: var(--card-bg); border-radius:15px; padding:25px; text-align:center; width:200px;
+      transition:var(--transition); border:1px solid var(--border); backdrop-filter:blur(10px);
     }
+    .platform-card:hover { transform:translateY(-5px); box-shadow:0 10px 25px rgba(0,0,0,0.3); }
+    .platform-icon { font-size:40px; margin-bottom:15px; color:var(--accent); }
+    .platform-name { font-weight:700; margin-bottom:10px; color:var(--text); }
+    .platform-btn { display:inline-block; padding:10px 20px; background:var(--gradient); color:white; border-radius:25px; font-size:0.9rem; font-weight:600; transition:var(--transition); }
+    .platform-btn:hover { transform:scale(1.05); box-shadow:0 5px 15px rgba(42,157,143,0.3); }
     
-    .platform-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    }
-    
-    .platform-icon {
-      font-size: 40px;
-      margin-bottom: 15px;
-      color: var(--accent);
-    }
-    
-    .platform-name {
-      font-weight: 700;
-      margin-bottom: 10px;
-      color: var(--text);
-    }
-    
-    .platform-btn {
-      display: inline-block;
-      padding: 10px 20px;
-      background: var(--gradient);
-      color: white;
-      border-radius: 25px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      transition: var(--transition);
-    }
-    
-    .platform-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 5px 15px rgba(42, 157, 143, 0.3);
-    }
-    
-    /* Contact Icons */
+    /* contact icons (no text) */
     .contact-icons {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      margin: 40px 0;
-      flex-wrap: wrap;
+      display: flex; justify-content: center; gap: 40px; margin: 40px 0; flex-wrap: wrap;
     }
-    
-    .contact-icon {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 15px;
-      transition: var(--transition);
-    }
-    
     .contact-icon a {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--gradient);
-      color: white;
-      font-size: 30px;
-      transition: var(--transition);
-      box-shadow: 0 5px 15px rgba(42, 157, 143, 0.3);
+      width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      background: var(--gradient); color: white; font-size: 30px; transition: var(--transition);
+      box-shadow: 0 5px 15px rgba(42,157,143,0.3);
     }
-    
     .contact-icon a:hover {
-      transform: translateY(-5px) scale(1.1);
-      box-shadow: 0 8px 20px rgba(42, 157, 143, 0.5);
+      transform: translateY(-5px) scale(1.1); box-shadow: 0 8px 20px rgba(42,157,143,0.5);
     }
+    /* no text spans after icons */
     
-    .contact-icon span {
-      color: var(--light-text);
-      font-size: 0.9rem;
-      text-align: center;
-    }
-    
-    /* UPDATED Social Icons Only */
+    /* social only */
     .icon-only {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin: 30px 0;
-      flex-wrap: wrap;
+      display: flex; justify-content: center; gap: 20px; margin: 30px 0; flex-wrap: wrap;
     }
-    
     .icon-only a {
-      width: 50px;
-      height: 50px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255, 255, 255, 0.1);
-      color: var(--text);
-      font-size: 20px;
-      transition: var(--transition);
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      position: relative;
-      overflow: hidden;
+      width: 50px; height: 50px; border-radius: 10px; display: flex; align-items: center; justify-content: center;
+      background: rgba(255,255,255,0.1); color: var(--text); font-size: 20px; transition: var(--transition);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid rgba(255,255,255,0.1); position: relative; overflow: hidden;
     }
-    
     .icon-only a::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: var(--gradient);
-      opacity: 0;
-      transition: var(--transition);
-      z-index: -1;
+      content: ''; position: absolute; top:0; left:0; width:100%; height:100%; background: var(--gradient);
+      opacity: 0; transition: var(--transition); z-index: -1;
     }
+    .icon-only a:hover { transform: translateY(-5px) scale(1.1); color: white; box-shadow: 0 8px 15px rgba(0,0,0,0.2); }
+    .icon-only a:hover::before { opacity: 1; }
     
-    .icon-only a:hover {
-      transform: translateY(-5px) scale(1.1);
-      color: white;
-      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    /* footer */
+    footer {
+      background: rgba(10,36,36,0.95); color: var(--text); padding: 60px 0 30px; text-align: center;
+      position: relative; border-top: 1px solid var(--border);
     }
+    footer::before { content:''; position:absolute; top:0; left:0; width:100%; height:1px; background:var(--gradient); }
+    .footer-links { display:flex; justify-content:center; gap:30px; margin-bottom:30px; flex-wrap:wrap; }
+    .footer-links a { color:var(--light-text); font-size:0.9rem; transition:var(--transition); }
+    .footer-links a:hover { color:var(--accent); transform:translateY(-3px); }
+    .credit-mwm { margin-top:40px; font-size:0.9rem; color:var(--light-green); border-top:1px solid rgba(255,255,255,0.1); padding-top:25px; }
+    .credit-mwm a { color:var(--accent); font-weight:700; text-decoration:underline; text-underline-offset:4px; }
+    .credit-mwm a:hover { color:white; }
     
-    .icon-only a:hover::before {
-      opacity: 1;
-    }
+    /* animations */
+    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+    @keyframes fadeInDown { from { opacity:0; transform:translateY(-20px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes float { 0% { transform:translateY(0px); } 50% { transform:translateY(-15px); } 100% { transform:translateY(0px); } }
+    .floating { animation: float 6s ease-in-out infinite; }
+    .page-content { display: none; animation: fadeIn 0.5s ease; }
+    .page-content.active { display: block; }
     
-    /* MWM Technologies credit style */
-    .credit-mwm {
-      margin-top: 40px;
-      font-size: 0.9rem;
-      color: var(--light-green);
-      border-top: 1px solid rgba(255,255,255,0.1);
-      padding-top: 25px;
-    }
-    .credit-mwm a {
-      color: var(--accent);
-      font-weight: 700;
-      text-decoration: underline;
-      text-underline-offset: 4px;
-    }
-    .credit-mwm a:hover {
-      color: white;
-    }
+    /* responsive */
+    @media (max-width:992px) { .release-card { flex-direction:column; } .release-image { width:100%; height:300px; } .hero-content { flex-direction:column; text-align:center; } .hero-text { text-align:center; } }
+    @media (max-width:768px) { .header-container { flex-direction:column; gap:20px; } nav ul { gap:15px; flex-wrap:wrap; justify-content:center; } .hero { padding:150px 0 80px; } .hero h1 { font-size:2.5rem; } .section { padding:80px 0; } .about-card { min-width:100%; } .mother-tribute { flex-direction:column; text-align:center; } .logo-full-name { display:none; } .nlm-family h2 { font-size:2rem; } .logo img { height:50px; } }
   </style>
 </head>
 <body>
@@ -1057,7 +283,7 @@
     </div>
   </header>
 
-  <!-- Home Page -->
+  <!-- HOME PAGE (only one latest release: Wild Kick) -->
   <div id="home" class="page-content active">
     <section class="hero">
       <div class="container">
@@ -1080,35 +306,19 @@
       </div>
     </section>
 
+    <!-- LATEST RELEASE: only Wild Kick -->
     <section class="section">
       <div class="container">
         <h2 class="section-title">Latest Release</h2>
-        
-        <!-- NEW WILD KICK AS LATEST RELEASE (FIRST) -->
         <div class="release-card">
           <img src="9.jpg" alt="Wild Kick" class="release-image">
           <div class="release-info">
             <h3 class="release-title">Wild Kick (feat. T.fly deDeejay)</h3>
             <p class="release-description">
-              A high-energy Afro-infused anthem blending raw street vibes with digital-era production. Hard-hitting beats, catchy hooks, and unstoppable rhythm. Released under Me & Music Digital.
+              A high-energy Afro-infused anthem blending raw street energy with digital-era production. Hard-hitting beats, infectious hooks, and unstoppable rhythm make this collaboration under Me & Music Digital a certified club banger, pulsating with pure African swagger.
             </p>
             <div class="release-links">
               <a href="https://www.mediafire.com/file/n3ebon4766y2yw2/DoskiWaAfrika_Feat._T.fly_deDeejay_-_Wild_Kick%2528Original_Mix%2529%25282%2529.zip/file" class="btn btn-primary" target="_blank">Download</a>
-              <a href="#" class="btn btn-outline" onclick="showPage('music')">More Music</a>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Original The New Wav as second latest -->
-        <div class="release-card">
-          <img src="8.jpg" alt="The New Wav" class="release-image">
-          <div class="release-info">
-            <h3 class="release-title">The New Wav (feat. Mo Kay SA)</h3>
-            <p class="release-description">
-              A compelling three-step journey through Afro-infused house sounds. Rooted in 3Step, layered with Afro House textures and Deep House grooves.
-            </p>
-            <div class="release-links">
-              <a href="https://www.mediafire.com/file/f4j4op1y95v5xsb/DoskiWaAfrika_Feat._Mo_Kay_SA_-_The_New_Wav%2528Original_Mix%2529.zip/file" class="btn btn-primary" target="_blank">Download</a>
               <a href="#" class="btn btn-outline" onclick="showPage('music')">More Music</a>
             </div>
           </div>
@@ -1122,7 +332,6 @@
         <p>
           NLM Music Group Africa was founded in 2025 by visionary music entrepreneur <strong>Ailwei Maduna Wa Malada</strong>, who named the label after his mother, <strong>Ntampose Lettia Maduna</strong>.
         </p>
-        
         <div class="mother-tribute floating">
           <img src="6.png" alt="Ntampose Lettia Maduna">
           <div class="mother-tribute-content">
@@ -1130,7 +339,6 @@
             <div class="title">Inspiring Force Behind NLM Music Group Africa</div>
           </div>
         </div>
-        
         <div class="family-members">
           <div class="family-member">
             <img src="ar.png" alt="Founder">
@@ -1138,147 +346,117 @@
             <p>Ailwei Maduna Wa Malada</p>
           </div>
         </div>
-        
         <a href="https://www.nlmmusicgroupafrica.co.za/#home" class="btn btn-primary" style="margin-top: 40px;" target="_blank">Learn More</a>
       </div>
     </section>
   </div>
 
-  <!-- Music Page (with brief descriptions + WILD KICK included) -->
+  <!-- MUSIC PAGE (all releases, moderately short descriptions) -->
   <div id="music" class="page-content">
     <section class="section">
       <div class="container">
         <h2 class="section-title">Music</h2>
         
         <div class="music-platforms">
-          <div class="platform-card">
-            <i class="fab fa-spotify platform-icon"></i>
-            <h3 class="platform-name">Spotify</h3>
-            <a href="https://open.spotify.com/artist/1LjKWa6DUl2DjrskbGPSop" class="platform-btn" target="_blank">Listen</a>
-          </div>
-          <div class="platform-card">
-            <i class="fab fa-apple platform-icon"></i>
-            <h3 class="platform-name">Apple Music</h3>
-            <a href="https://music.apple.com/us/artist/doskiwaafrika/1476687662" class="platform-btn" target="_blank">Listen</a>
-          </div>
-          <div class="platform-card">
-            <i class="fas fa-compact-disc platform-icon"></i>
-            <h3 class="platform-name">Beatport</h3>
-            <a href="https://www.beatport.com/artist/doskiwaafrika/959728" class="platform-btn" target="_blank">Listen</a>
-          </div>
-          <div class="platform-card">
-            <i class="fas fa-music platform-icon"></i>
-            <h3 class="platform-name">Traxsource</h3>
-            <a href="https://www.traxsource.com/artist/567131/doskiwaafrika" class="platform-btn" target="_blank">Listen</a>
-          </div>
+          <div class="platform-card"><i class="fab fa-spotify platform-icon"></i><h3 class="platform-name">Spotify</h3><a href="https://open.spotify.com/artist/1LjKWa6DUl2DjrskbGPSop" class="platform-btn" target="_blank">Listen</a></div>
+          <div class="platform-card"><i class="fab fa-apple platform-icon"></i><h3 class="platform-name">Apple Music</h3><a href="https://music.apple.com/us/artist/doskiwaafrika/1476687662" class="platform-btn" target="_blank">Listen</a></div>
+          <div class="platform-card"><i class="fas fa-compact-disc platform-icon"></i><h3 class="platform-name">Beatport</h3><a href="https://www.beatport.com/artist/doskiwaafrika/959728" class="platform-btn" target="_blank">Listen</a></div>
+          <div class="platform-card"><i class="fas fa-music platform-icon"></i><h3 class="platform-name">Traxsource</h3><a href="https://www.traxsource.com/artist/567131/doskiwaafrika" class="platform-btn" target="_blank">Listen</a></div>
         </div>
-        
-        <!-- WILD KICK added -->
+
+        <!-- WILD KICK -->
         <div class="release-card">
           <img src="9.jpg" alt="Wild Kick" class="release-image">
           <div class="release-info">
             <h3 class="release-title">Wild Kick (feat. T.fly deDeejay)</h3>
             <p class="release-description">
-              Afro-infused anthem blending raw street vibes with digital production. Hard beats, catchy hooks, unstoppable rhythm. (Me & Music Digital)
+              Raw street energy meets digital-age production. "Wild Kick" is an explosive Afro-infused collaboration with T.fly deDeejay, featuring heavy percussions, catchy vocal chops, and a groove that commands the dancefloor. Released via Me & Music Digital.
             </p>
-            <div class="release-links">
-              <a href="https://www.mediafire.com/file/n3ebon4766y2yw2/DoskiWaAfrika_Feat._T.fly_deDeejay_-_Wild_Kick%2528Original_Mix%2529%25282%2529.zip/file" class="btn btn-primary" target="_blank">Download</a>
-            </div>
+            <div class="release-links"><a href="https://www.mediafire.com/file/n3ebon4766y2yw2/DoskiWaAfrika_Feat._T.fly_deDeejay_-_Wild_Kick%2528Original_Mix%2529%25282%2529.zip/file" class="btn btn-primary" target="_blank">Download</a></div>
           </div>
         </div>
-        
+        <!-- THE NEW WAV -->
         <div class="release-card">
           <img src="8.jpg" alt="The New Wav" class="release-image">
           <div class="release-info">
             <h3 class="release-title">The New Wav (feat. Mo Kay SA)</h3>
-            <p class="release-description">Three-step journey through Afro-infused house — 3Step, Afro House & Deep House.</p>
-            <div class="release-links">
-              <a href="https://www.mediafire.com/file/f4j4op1y95v5xsb/DoskiWaAfrika_Feat._Mo_Kay_SA_-_The_New_Wav%2528Original_Mix%2529.zip/file" class="btn btn-primary" target="_blank">Download</a>
-            </div>
+            <p class="release-description">
+              A compelling three‑step journey through Afro‑infused house. Rooted in 3Step, layered with rich Afro House textures and deep, atmospheric grooves — perfect for both the dancefloor and introspective listening.
+            </p>
+            <div class="release-links"><a href="https://www.mediafire.com/file/f4j4op1y95v5xsb/DoskiWaAfrika_Feat._Mo_Kay_SA_-_The_New_Wav%2528Original_Mix%2529.zip/file" class="btn btn-primary" target="_blank">Download</a></div>
           </div>
         </div>
-        
+        <!-- WORLD OF DRUM TECH EP -->
         <div class="release-card">
           <img src="7.png" alt="World Of Drum Tech EP" class="release-image">
           <div class="release-info">
             <h3 class="release-title">World Of Drum Tech EP</h3>
-            <p class="release-description">Powerful Afro House journey fusing tribal rhythms, soulful melodies, and modern electronic grooves.</p>
-            <div class="release-links">
-              <a href="https://www.mediafire.com/file/db84bk7i91usuei/DoskiWaAfrika_-_World_Of_Drum_Tech_EP.zip/file" class="btn btn-primary" target="_blank">Download EP</a>
-            </div>
+            <p class="release-description">
+              A powerful Afro House journey fusing deep tribal rhythms, soulful melodies and modern electronic grooves. Each track pulses with the heartbeat of Africa, celebrating culture and dance.
+            </p>
+            <div class="release-links"><a href="https://www.mediafire.com/file/db84bk7i91usuei/DoskiWaAfrika_-_World_Of_Drum_Tech_EP.zip/file" class="btn btn-primary" target="_blank">Download EP</a></div>
           </div>
         </div>
-        
+        <!-- KING OF DRUM TECH VOL 03 EP -->
         <div class="release-card">
           <img src="5.png" alt="King Of Drum Tech Vol 03 EP" class="release-image">
           <div class="release-info">
             <h3 class="release-title">King Of Drum Tech Vol 03 EP</h3>
-            <p class="release-description">Tribal rhythms, heavy drums, futuristic underground grooves — pure DrumTech energy.</p>
-            <div class="release-links">
-              <a href="https://www.mediafire.com/file/hbqhqx31y5llyhl/DoskiWaAfrika_-_King_Of_Drum_Tech_Vol_03_EP.zip/file?dkey=7mzz20srrcf&r=1709" class="btn btn-primary" target="_blank">Download EP</a>
-            </div>
+            <p class="release-description">
+              Tribal rhythms, heavy drums and futuristic underground grooves define this EP. A bold evolution of the Drum Tech movement, unfiltered and made for real music lovers.
+            </p>
+            <div class="release-links"><a href="https://www.mediafire.com/file/hbqhqx31y5llyhl/DoskiWaAfrika_-_King_Of_Drum_Tech_Vol_03_EP.zip/file?dkey=7mzz20srrcf&r=1709" class="btn btn-primary" target="_blank">Download EP</a></div>
           </div>
         </div>
-        
+        <!-- CONFIDENCE EP -->
         <div class="release-card">
           <img src="4.jpg" alt="Confidence EP" class="release-image">
           <div class="release-info">
             <h3 class="release-title">Confidence EP</h3>
-            <p class="release-description">Vibrant Afro House EP pulsating with rhythm, African melodies, and uplifting energy.</p>
-            <div class="release-links">
-              <a href="https://www.mediafire.com/file/pzx5lnxfitqf0au/DoskiWaAfrika_-_Confidence_EP.zip/file" class="btn btn-primary" target="_blank">Download EP</a>
-            </div>
+            <p class="release-description">
+              A vibrant Afro House EP pulsating with rich African melodies, hypnotic percussions and uplifting energy. A celebration of self‑assurance and cultural pride.
+            </p>
+            <div class="release-links"><a href="https://www.mediafire.com/file/pzx5lnxfitqf0au/DoskiWaAfrika_-_Confidence_EP.zip/file" class="btn btn-primary" target="_blank">Download EP</a></div>
           </div>
         </div>
-        
+        <!-- KING OF DRUM TECH VOL 02 ALBUM -->
         <div class="release-card">
           <img src="1.jpg" alt="King Of Drum Tech Vol 02 Album" class="release-image">
           <div class="release-info">
             <h3 class="release-title">King Of Drum Tech Vol 02 Album</h3>
-            <p class="release-description">Tribal grooves, unreleased originals, bold reworks — evolution of production style.</p>
-            <div class="release-links">
-              <a href="https://www.mediafire.com/file/5hd7lj2cm9vy7g9/DoskiWaAfrika_-_King_Of_Drum_Tech_Vol_02_Album.zip/file" class="btn btn-primary" target="_blank">Download Album</a>
-            </div>
+            <p class="release-description">
+              From peak‑time dancefloor destroyers to hypnotic tribal grooves, this album showcases unreleased originals and bold collaborations bridging traditional African percussion with futuristic electronic energy.
+            </p>
+            <div class="release-links"><a href="https://www.mediafire.com/file/5hd7lj2cm9vy7g9/DoskiWaAfrika_-_King_Of_Drum_Tech_Vol_02_Album.zip/file" class="btn btn-primary" target="_blank">Download Album</a></div>
           </div>
         </div>
-        
+        <!-- EVIL EYE EP -->
         <div class="release-card">
           <img src="4.png" alt="Evil Eye EP" class="release-image">
           <div class="release-info">
             <h3 class="release-title">Evil Eye EP</h3>
-            <p class="release-description">6-track EP merging Afro House rhythms with deep, rolling Tech basslines. Dark & driving.</p>
-            <div class="release-links">
-              <a href="https://www.mediafire.com/file/huacucugcqqmr77/DoskiWaAfrika_-_Evil_Eye_EP.zip/file" class="btn btn-primary" target="_blank">Download EP</a>
-            </div>
+            <p class="release-description">
+              A 6‑track EP merging Afro House rhythms with deep, rolling Tech basslines. Dark, driving and hypnotic — raw spiritual energy made to move bodies.
+            </p>
+            <div class="release-links"><a href="https://www.mediafire.com/file/huacucugcqqmr77/DoskiWaAfrika_-_Evil_Eye_EP.zip/file" class="btn btn-primary" target="_blank">Download EP</a></div>
           </div>
         </div>
       </div>
     </section>
   </div>
 
-  <!-- About Page (unchanged) -->
+  <!-- ABOUT PAGE -->
   <div id="about" class="page-content">
     <section class="section">
       <div class="container">
         <h2 class="section-title">About</h2>
-        
         <div class="about-container">
-          <div class="about-card floating">
-            <img src="3.png" alt="DoskiWaAfrika">
-            <h3>DoskiWaAfrika</h3>
-            <p>DJ & Producer specializing in Afro House and Deep House, bringing authentic African rhythms to the global electronic music scene.</p>
-          </div>
-          
-          <div class="about-card floating">
-            <img src="2.png" alt="NLM Music Group">
-            <h3>NLM Music Group Africa</h3>
-            <p>African Electronic Music Label dedicated to promoting authentic African electronic sounds worldwide.</p>
-          </div>
+          <div class="about-card floating"><img src="3.png" alt="DoskiWaAfrika"><h3>DoskiWaAfrika</h3><p>DJ & Producer specializing in Afro House and Deep House, bringing authentic African rhythms to the global electronic music scene.</p></div>
+          <div class="about-card floating"><img src="2.png" alt="NLM Music Group"><h3>NLM Music Group Africa</h3><p>African Electronic Music Label dedicated to promoting authentic African electronic sounds worldwide.</p></div>
         </div>
-        
-        <div style="max-width: 800px; margin: 60px auto 0; background: var(--card-bg); padding: 40px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); border: 1px solid var(--border);">
-          <h3 style="text-align: center; margin-bottom: 20px; color: var(--accent);">Our Story</h3>
-          <p style="color: var(--light-text); line-height: 1.8; text-align: center;">
+        <div style="max-width:800px; margin:60px auto 0; background:var(--card-bg); padding:40px; border-radius:15px; box-shadow:0 5px 20px rgba(0,0,0,0.2); border:1px solid var(--border);">
+          <h3 style="text-align:center; margin-bottom:20px; color:var(--accent);">Our Story</h3>
+          <p style="color:var(--light-text); line-height:1.8; text-align:center;">
             DoskiWaAfrika is a pioneering electronic music artist who fuses traditional African rhythms with contemporary house music production. Hailing from Koster in South Africa's North-West province, his sound is deeply rooted in African musical heritage while embracing modern electronic production techniques. Signed to NLM Music Group Africa, a label founded in 2025 by Ailwei Maduna Wa Malada in honor of his mother, Ntampose Lettia Maduna. Together, we're pushing the boundaries of African electronic music and bringing its unique sound to the global stage.
           </p>
         </div>
@@ -1286,41 +464,22 @@
     </section>
   </div>
 
-  <!-- Bookings Page (with personal details added) -->
+  <!-- BOOKINGS PAGE (only icons, NO names) -->
   <div id="bookings" class="page-content">
     <section class="section">
       <div class="container">
         <h2 class="section-title">Bookings & Contact</h2>
-        <div style="max-width: 600px; margin: 0 auto; text-align: center; background: var(--card-bg); padding: 40px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); border: 1px solid var(--border); backdrop-filter: blur(10px);">
-          <p style="margin-bottom: 30px; color: var(--light-text);">
-            For bookings, collaborations, or general inquiries, reach out to us through any of these channels:
+        <div style="max-width:600px; margin:0 auto; text-align:center; background:var(--card-bg); padding:40px; border-radius:15px; box-shadow:0 5px 20px rgba(0,0,0,0.2); border:1px solid var(--border); backdrop-filter:blur(10px);">
+          <p style="margin-bottom:30px; color:var(--light-text);">
+            For bookings, collaborations, or general inquiries, reach out through any channel below:
           </p>
-          
+          <!-- ICONS ONLY – no names/text under icons -->
           <div class="contact-icons">
-            <div class="contact-icon">
-              <a href="mailto:officialnlmmusicgroupafrica@gmail.com" target="_blank">
-                <i class="far fa-envelope"></i>
-              </a>
-              <span>officialnlmmusicgroupafrica@gmail.com</span>
-            </div>
-            
-            <div class="contact-icon">
-              <a href="https://wa.me/0813398293" target="_blank">
-                <i class="fab fa-whatsapp"></i>
-              </a>
-              <span>+27 81 339 8293</span>
-            </div>
-            
-            <div class="contact-icon">
-              <a href="tel:0813398293" target="_blank">
-                <i class="fas fa-phone"></i>
-              </a>
-              <span>081 339 8293</span>
-            </div>
+            <div class="contact-icon"><a href="mailto:officialnlmmusicgroupafrica@gmail.com" target="_blank"><i class="far fa-envelope"></i></a></div>
+            <div class="contact-icon"><a href="https://wa.me/0813398293" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+            <div class="contact-icon"><a href="tel:0813398293" target="_blank"><i class="fas fa-phone"></i></a></div>
           </div>
-          
-          <!-- Additional contact detail: name -->
-          <p style="margin-top: 20px; color: var(--accent); font-weight: 600;">Ailwei Maduna Wa Malada / DoskiWaAfrika</p>
+          <!-- No names below icons -->
         </div>
       </div>
     </section>
@@ -1334,7 +493,6 @@
         <a href="#" onclick="showPage('about')">About</a>
         <a href="#" onclick="showPage('bookings')">Bookings</a>
       </div>
-      
       <div class="icon-only">
         <a href="https://www.facebook.com/KingOfDrumTech" target="_blank"><i class="fab fa-facebook-f"></i></a>
         <a href="https://vm.tiktok.com/ZMHtwc1MMwhx7-aGGDm/" target="_blank"><i class="fab fa-tiktok"></i></a>
@@ -1342,54 +500,31 @@
         <a href="https://open.spotify.com/artist/1LjKWa6DUl2DjrskbGPSop" target="_blank"><i class="fab fa-spotify"></i></a>
         <a href="https://music.apple.com/us/artist/doskiwaafrika/1476687662" target="_blank"><i class="fab fa-apple"></i></a>
       </div>
-      
-      <!-- MWM Technologies credit with link -->
       <div class="credit-mwm">
         Created By <a href="https://www.mwmtechnologies.co.za/" target="_blank">MWM Technologies</a>
       </div>
-      
-      <p style="margin-top: 30px; color: var(--light-text); font-size: 0.8rem;">
+      <p style="margin-top:30px; color:var(--light-text); font-size:0.8rem;">
         &copy; 2025 DoskiWaAfrika & NLM Music Group Africa. All rights reserved.
       </p>
     </div>
   </footer>
 
   <script>
-    // Function to show the selected page and hide others
     function showPage(pageId) {
-      document.querySelectorAll('.page-content').forEach(page => {
-        page.classList.remove('active');
-      });
+      document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
       document.getElementById(pageId).classList.add('active');
       window.scrollTo(0, 0);
       window.location.hash = pageId;
     }
-    
     window.addEventListener('DOMContentLoaded', function() {
       const hash = window.location.hash.substring(1);
-      if (hash && document.getElementById(hash)) {
-        showPage(hash);
-      } else {
-        showPage('home');
-      }
+      if (hash && document.getElementById(hash)) showPage(hash);
+      else showPage('home');
     });
-
     window.addEventListener('scroll', function() {
       const header = document.querySelector('header');
-      if (window.scrollY > 100) {
-        header.style.padding = '10px 0';
-        header.style.boxShadow = '0 5px 15px rgba(0,0,0,0.3)';
-      } else {
-        header.style.padding = '15px 0';
-        header.style.boxShadow = 'none';
-      }
-    });
-
-    document.addEventListener('DOMContentLoaded', function() {
-      const floatingElements = document.querySelectorAll('.floating');
-      floatingElements.forEach((el, index) => {
-        el.style.animationDelay = `${index * 0.2}s`;
-      });
+      header.style.padding = window.scrollY > 100 ? '10px 0' : '15px 0';
+      header.style.boxShadow = window.scrollY > 100 ? '0 5px 15px rgba(0,0,0,0.3)' : 'none';
     });
   </script>
 </body>
