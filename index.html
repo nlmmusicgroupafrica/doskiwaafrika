@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DeADip · NLM</title>
+  <title>DeADip</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
@@ -47,6 +47,12 @@
       transition: var(--transition);
     }
     
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    
     .container {
       width: 100%;
       max-width: 1200px;
@@ -85,6 +91,7 @@
       background: var(--gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      position: relative;
     }
     
     .logo img {
@@ -95,6 +102,13 @@
     
     .logo:hover img {
       transform: rotate(10deg) scale(1.1);
+    }
+    
+    .logo-full-name {
+      font-size: 1.2rem;
+      margin-left: 5px;
+      color: var(--text);
+      font-weight: 600;
     }
     
     nav ul {
@@ -124,15 +138,21 @@
       transition: var(--transition);
     }
     
+    nav a:hover {
+      color: var(--accent);
+    }
+    
     nav a:hover::after {
       width: 100%;
     }
     
-    /* Hero */
+    /* Hero Section */
     .hero {
       padding: 180px 0 100px;
       text-align: center;
       background: linear-gradient(rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.9));
+      background-size: cover;
+      background-position: center;
       position: relative;
       overflow: hidden;
     }
@@ -195,13 +215,15 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      animation: fadeInDown 1s ease;
     }
     
     .hero p {
       max-width: 700px;
-      margin: 0 0 30px;
+      margin: 0 auto 30px;
       color: var(--light-text);
       font-size: 1.1rem;
+      animation: fadeIn 1.5s ease;
     }
     
     .btn {
@@ -209,7 +231,7 @@
       padding: 15px 35px;
       border-radius: 50px;
       font-weight: 700;
-      margin: 0 10px 10px 0;
+      margin: 0 10px;
       text-transform: uppercase;
       letter-spacing: 1px;
       font-size: 0.9rem;
@@ -246,6 +268,7 @@
     .btn-primary:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 20px rgba(0, 255, 157, 0.4), var(--glow);
+      color: white;
     }
     
     .btn-outline {
@@ -258,9 +281,10 @@
       background: var(--accent);
       color: var(--primary);
       transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(255, 62, 128, 0.3);
+      box-shadow: 0 10px 20px rgba(255, 62, 128, 0.3), var(--glow);
     }
     
+    /* Sections */
     .section {
       padding: 100px 0;
       position: relative;
@@ -276,8 +300,8 @@
       background: var(--gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      position: relative;
       display: inline-block;
-      width: 100%;
     }
     
     .section-title::after {
@@ -292,7 +316,7 @@
       border-radius: 2px;
     }
     
-    /* about cards */
+    /* About Section */
     .about-container {
       display: flex;
       justify-content: center;
@@ -327,62 +351,10 @@
       margin: 0 auto 20px;
       border: 3px solid transparent;
       background: var(--gradient) padding-box, var(--gradient) border-box;
+      background-origin: border-box;
+      background-clip: padding-box, border-box;
     }
     
-    /* releases */
-    .release-card {
-      max-width: 900px;
-      margin: 0 auto 40px;
-      background: var(--card-bg);
-      border-radius: 15px;
-      overflow: hidden;
-      display: flex;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-      transition: var(--transition);
-      border: 1px solid var(--border);
-      backdrop-filter: blur(10px);
-    }
-    
-    .release-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 255, 157, 0.2);
-    }
-    
-    .release-image {
-      width: 280px;
-      height: auto;
-      object-fit: cover;
-    }
-    
-    .release-info {
-      padding: 30px;
-      flex: 1;
-    }
-    
-    .release-title {
-      font-size: 1.8rem;
-      font-weight: 800;
-      margin-bottom: 15px;
-      text-transform: uppercase;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    
-    .release-description {
-      color: var(--light-text);
-      margin-bottom: 20px;
-      line-height: 1.6;
-    }
-    
-    .release-links {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
-    
-    /* mother tribute */
     .mother-tribute {
       display: flex;
       align-items: center;
@@ -400,6 +372,17 @@
       overflow: hidden;
     }
     
+    .mother-tribute::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at top right, rgba(0, 255, 157, 0.1) 0%, transparent 70%);
+      z-index: 0;
+    }
+    
     .mother-tribute img {
       width: 220px;
       height: 220px;
@@ -407,7 +390,11 @@
       object-fit: cover;
       border: 4px solid transparent;
       background: var(--gradient) padding-box, var(--gradient) border-box;
+      background-origin: border-box;
+      background-clip: padding-box, border-box;
       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+      position: relative;
+      z-index: 1;
       transition: var(--transition);
     }
     
@@ -416,97 +403,470 @@
       box-shadow: 0 8px 25px rgba(0, 255, 157, 0.4);
     }
     
+    .mother-tribute-content {
+      flex: 1;
+      position: relative;
+      z-index: 1;
+    }
+    
     .mother-tribute p {
       font-size: 1.8rem;
       color: var(--secondary);
       font-weight: 800;
       text-align: center;
       margin-bottom: 15px;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     }
     
+    .mother-tribute .title {
+      font-size: 1.2rem;
+      color: var(--electric-blue);
+      text-align: center;
+      font-weight: 600;
+    }
+    
+    /* NLM Family Section */
     .nlm-family {
       text-align: center;
       padding: 80px 0;
       background: var(--card-bg);
+      position: relative;
+      overflow: hidden;
     }
     
-    /* bookings */
-    .booking-card {
-      max-width: 700px;
-      margin: 0 auto;
-      background: var(--card-bg);
-      border-radius: 20px;
-      padding: 50px 40px;
-      border: 1px solid var(--border);
-      backdrop-filter: blur(12px);
+    .nlm-family::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(0, 255, 157, 0.1) 0%, transparent 70%);
+      z-index: 0;
     }
     
-    .contact-row {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      padding: 20px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    
-    .contact-row:last-child {
-      border-bottom: none;
-    }
-    
-    .contact-icon-large {
-      width: 60px;
-      height: 60px;
+    .nlm-family h2 {
+      font-size: 3rem;
+      margin-bottom: 30px;
+      font-weight: 900;
+      text-transform: uppercase;
       background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .nlm-family p {
+      max-width: 800px;
+      margin: 0 auto 40px;
+      font-size: 1.2rem;
+      color: var(--light-text);
+      position: relative;
+      z-index: 1;
+    }
+    
+    .family-members {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .family-member {
+      width: 200px;
+      text-align: center;
+    }
+    
+    .family-member img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 20px;
+      border: 3px solid transparent;
+      background: var(--gradient) padding-box, var(--gradient) border-box;
+      background-origin: border-box;
+      background-clip: padding-box, border-box;
+      transition: var(--transition);
+    }
+    
+    .family-member:hover img {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(0, 255, 157, 0.5);
+    }
+    
+    .family-member h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: var(--electric-blue);
+    }
+    
+    .family-member p {
+      color: var(--light-text);
+      font-size: 0.9rem;
+    }
+    
+    /* Artists Section */
+    .artists-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .artist-card {
+      width: 280px;
+      background: var(--card-bg);
+      border-radius: 15px;
+      overflow: hidden;
+      transition: var(--transition);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+      position: relative;
+    }
+    
+    .artist-card:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 62, 128, 0.2);
+    }
+    
+    .artist-image-container {
+      position: relative;
+      overflow: hidden;
+      height: 350px;
+    }
+    
+    .artist-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+    
+    .artist-card:hover .artist-image {
+      transform: scale(1.1);
+    }
+    
+    .artist-social {
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      opacity: 0;
+      transition: var(--transition);
+    }
+    
+    .artist-card:hover .artist-social {
+      opacity: 1;
+    }
+    
+    .artist-social a {
+      width: 40px;
+      height: 40px;
+      background: var(--gradient);
+      color: white;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 24px;
-      color: white;
+      transition: var(--transition);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
     }
     
-    .contact-detail {
-      text-align: left;
+    .artist-social a:hover {
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 5px 15px rgba(0, 255, 157, 0.4);
     }
     
-    .contact-detail .label {
-      font-size: 0.8rem;
+    .artist-info {
+      padding: 25px;
+      text-align: center;
+    }
+    
+    .artist-name {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .artist-name::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 3px;
+      background: var(--gradient);
+      border-radius: 2px;
+    }
+    
+    .artist-bio {
+      color: var(--light-text);
+      line-height: 1.7;
+      margin-bottom: 15px;
+    }
+    
+    .artist-genre {
+      display: inline-block;
+      padding: 5px 15px;
+      background: rgba(255, 62, 128, 0.1);
       color: var(--accent);
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border: 1px solid rgba(255, 62, 128, 0.3);
+    }
+    
+    /* Releases Section */
+    .release-card {
+      max-width: 800px;
+      margin: 0 auto 40px;
+      background: var(--card-bg);
+      border-radius: 15px;
+      overflow: hidden;
+      display: flex;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+      transition: var(--transition);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+    }
+    
+    .release-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 255, 157, 0.2);
+    }
+    
+    .release-image {
+      width: 300px;
+      height: auto;
+      object-fit: cover;
+    }
+    
+    .release-info {
+      padding: 30px;
+      flex: 1;
+    }
+    
+    .release-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .release-description {
+      color: var(--light-text);
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+    
+    .release-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
+    }
+    
+    /* Footer */
+    footer {
+      background: rgba(10, 10, 10, 0.95);
+      color: var(--text);
+      padding: 60px 0 30px;
+      text-align: center;
+      position: relative;
+      border-top: 1px solid var(--border);
+    }
+    
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--gradient);
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin: 30px 0;
+    }
+    
+    .social-links a {
+      color: var(--light-text);
+      font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 1px;
-    }
-    
-    .contact-detail .value {
-      font-size: 1.3rem;
-      font-weight: 600;
-      word-break: break-word;
-    }
-    
-    .value a:hover {
-      color: var(--secondary);
-    }
-    
-    .credit {
-      margin-top: 40px;
       font-size: 0.9rem;
-      color: var(--light-text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
     }
     
-    .credit a {
-      color: var(--electric-blue);
+    .social-links a:hover {
+      color: var(--accent);
+      transform: translateY(-3px);
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+    
+    .footer-links a {
+      color: var(--light-text);
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+    
+    .footer-links a:hover {
+      color: var(--accent);
+      transform: translateY(-3px);
+    }
+    
+    .email-link {
+      word-break: break-all;
+      color: var(--accent);
       font-weight: 600;
     }
     
-    .credit a:hover {
-      text-decoration: underline;
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
     
-    /* music platforms */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      .release-card {
+        flex-direction: column;
+      }
+      
+      .release-image {
+        width: 100%;
+        height: 300px;
+      }
+      
+      .hero-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .hero-text {
+        text-align: center;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        gap: 20px;
+      }
+      
+      nav ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .hero {
+        padding: 150px 0 80px;
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .section {
+        padding: 80px 0;
+      }
+      
+      .about-card {
+        min-width: 100%;
+      }
+      
+      .mother-tribute {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .logo-full-name {
+        display: none;
+      }
+      
+      .nlm-family h2 {
+        font-size: 2rem;
+      }
+    }
+    
+    /* Floating elements animation */
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    /* Page content styles */
+    .page-content {
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+    
+    .page-content.active {
+      display: block;
+    }
+    
+    /* Music Platforms Section */
     .music-platforms {
       display: flex;
       justify-content: center;
-      gap: 25px;
-      margin: 50px 0;
+      gap: 30px;
+      margin: 40px 0;
       flex-wrap: wrap;
     }
     
@@ -515,8 +875,15 @@
       border-radius: 15px;
       padding: 25px;
       text-align: center;
-      width: 180px;
+      width: 200px;
+      transition: var(--transition);
       border: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+    }
+    
+    .platform-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     }
     
     .platform-icon {
@@ -525,17 +892,70 @@
       color: var(--accent);
     }
     
+    .platform-name {
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+    
     .platform-btn {
       display: inline-block;
       padding: 10px 20px;
       background: var(--gradient);
       color: white;
       border-radius: 25px;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       font-weight: 600;
+      transition: var(--transition);
     }
     
-    /* footer icons */
+    .platform-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(0, 255, 157, 0.3);
+    }
+    
+    /* Contact Icons */
+    .contact-icons {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 40px 0;
+    }
+    
+    .contact-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      transition: var(--transition);
+    }
+    
+    .contact-icon a {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--gradient);
+      color: white;
+      font-size: 30px;
+      transition: var(--transition);
+      box-shadow: 0 5px 15px rgba(0, 255, 157, 0.3);
+    }
+    
+    .contact-icon a:hover {
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 8px 20px rgba(0, 255, 157, 0.5);
+    }
+    
+    .contact-icon span {
+      color: var(--light-text);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+    
+    /* UPDATED Social Icons Only */
     .icon-only {
       display: flex;
       justify-content: center;
@@ -554,68 +974,49 @@
       color: var(--text);
       font-size: 20px;
       transition: var(--transition);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .icon-only a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--gradient);
+      opacity: 0;
+      transition: var(--transition);
+      z-index: -1;
     }
     
     .icon-only a:hover {
       transform: translateY(-5px) scale(1.1);
       color: white;
-      box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
     }
     
-    .icon-only a:nth-child(1):hover { background: #1877F2; }
-    .icon-only a:nth-child(2):hover { background: #000000; }
+    .icon-only a:hover::before {
+      opacity: 1;
+    }
+    
+    .icon-only a:nth-child(1):hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+    .icon-only a:nth-child(2):hover { background: #1877F2; }
     .icon-only a:nth-child(3):hover { background: #FF0000; }
-    .icon-only a:nth-child(4):hover { background: #1DB954; }
-    .icon-only a:nth-child(5):hover { background: #A3AAAE; } /* apple grey */
-    
-    footer {
-      background: rgba(10, 10, 10, 0.95);
-      padding: 60px 0 30px;
-      text-align: center;
-      border-top: 1px solid var(--border);
-    }
-    
-    .footer-links a {
-      color: var(--light-text);
-      margin: 0 15px;
-    }
-    
-    .footer-links a:hover {
-      color: var(--accent);
-    }
-    
-    /* page system */
-    .page-content {
-      display: none;
-      animation: fadeIn 0.4s ease;
-    }
-    
-    .page-content.active {
-      display: block;
-    }
-    
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    @keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0); } }
-    .floating { animation: float 6s ease-in-out infinite; }
-    
-    @media (max-width: 768px) {
-      .header-container { flex-direction: column; gap: 15px; }
-      nav ul { gap: 20px; }
-      .hero h1 { font-size: 2.5rem; }
-      .hero-content { flex-direction: column; text-align: center; }
-      .hero-text { text-align: center; }
-      .release-card { flex-direction: column; }
-      .release-image { width: 100%; height: auto; }
-      .mother-tribute { flex-direction: column; text-align: center; }
-    }
+    .icon-only a:nth-child(4):hover { background: #000000; }
+    .icon-only a:nth-child(5):hover { background: #0055ff; }
+    .icon-only a:nth-child(6):hover { background: #2DAAE1; }
+    .icon-only a:nth-child(7):hover { background: linear-gradient(45deg, #8a2387, #f27121, #e94057); }
   </style>
 </head>
 <body>
   <header>
     <div class="container header-container">
       <a href="#" class="logo" onclick="showPage('home')">
-        <img src="logo.png" alt="DeADip" onerror="this.style.display='none'">
+        <img src="logo.png" alt="DeADip">
         <span>DeADip</span>
       </a>
       <nav>
@@ -629,20 +1030,23 @@
     </div>
   </header>
 
-  <!-- HOME PAGE (latest release: Dead Souls EP only) -->
+  <!-- Home Page -->
   <div id="home" class="page-content active">
     <section class="hero">
       <div class="container">
         <div class="hero-content">
           <div class="hero-image floating">
-            <img src="1.jpg" alt="DeADip" onerror="this.src='https://via.placeholder.com/400?text=DeADip'">
+            <img src="1.jpg" alt="DeADip">
           </div>
           <div class="hero-text">
             <h1>DeADip</h1>
-            <p>Visionary producer and DJ shaping Tribal House & Deep Tech. His music bridges ancient African percussion with futuristic textures — primal and progressive.</p>
+            <p>
+              A visionary producer and DJ shaping the sounds of Tribal House and Deep Tech, DeADip delivers immersive rhythms rooted in culture and groove. His music bridges ancient African percussion with futuristic electronic textures — creating a soundscape that is both primal and progressive.
+            </p>
             <div>
               <a href="#" class="btn btn-primary" onclick="showPage('bookings')">Bookings</a>
               <a href="#" class="btn btn-outline" onclick="showPage('music')">Listen Now</a>
+              <a href="#" class="btn btn-outline" onclick="showPage('about')">About</a>
             </div>
           </div>
         </div>
@@ -651,130 +1055,197 @@
 
     <section class="section">
       <div class="container">
-        <h2 class="section-title">Latest release</h2>
-        <!-- ONLY DEAD SOULS EP (latest) using image 5.jpg -->
+        <h2 class="section-title">Latest Release</h2>
+        
+        <!-- Dead Souls EP as latest release -->
         <div class="release-card">
-          <img src="5.jpg" alt="Dead Souls EP" class="release-image" onerror="this.src='https://via.placeholder.com/280?text=Dead+Souls'">
+          <img src="5.jpg" alt="Dead Souls EP" class="release-image">
           <div class="release-info">
             <h3 class="release-title">Dead Souls EP</h3>
             <p class="release-description">
-              A hypnotic journey into the primal heartbeat of the earth. DeADip fuses raw tribal rhythms, ancient chants, and ritualistic drumming with modern electronic textures. Each track pulses with ceremonial fire, ghostly melodies, and the echo of spirits — timeless and otherworldly.
+              Dead Souls is a hypnotic journey into the primal heartbeat of the earth from visionary artist DeADip. This EP fuses raw tribal rhythms, ancient chants, and ritualistic drumming with modern electronic textures, creating a sound that feels both ancestral and otherworldly. Each track pulses with the energy of ceremonial fires and the haunting echoes of spirits long forgotten.
             </p>
             <div class="release-links">
               <a href="https://www.mediafire.com/file/gaouocfkczth8d5/DeADip_-_Dead_Souls_EP.zip/file" class="btn btn-primary" target="_blank">Download EP</a>
-              <a href="#" class="btn btn-outline" onclick="showPage('music')">More music</a>
+              <a href="#" class="btn btn-outline" onclick="showPage('music')">More Music</a>
             </div>
           </div>
         </div>
-        <!-- Dimensions bootleg is NO LONGER displayed on home page, only in music page -->
       </div>
     </section>
 
-    <!-- NLM Family (keep intact) -->
     <section class="nlm-family">
       <div class="container">
         <h2>WE ARE NLM FAMILY</h2>
-        <p>Founded in 2025 by Ailwei Maduna Wa Malada, named after his mother <strong>Ntampose Lettia Maduna</strong>.</p>
+        <p>
+          NLM Music Group Africa was founded in 2025 by visionary music entrepreneur <strong>Ailwei Maduna Wa Malada</strong>, who named the label after his mother, <strong>Ntampose Lettia Maduna</strong>.
+        </p>
+        
         <div class="mother-tribute floating">
-          <img src="6.png" alt="Ntampose Lettia Maduna" onerror="this.src='https://via.placeholder.com/220?text=Mother'">
+          <img src="6.png" alt="Ntampose Lettia Maduna">
           <div class="mother-tribute-content">
             <p>Ntampose Lettia Maduna</p>
-            <div class="title" style="color:var(--electric-blue)">Inspiring Force Behind NLM Music Group</div>
+            <div class="title">Inspiring Force Behind NLM Music Group Africa</div>
           </div>
         </div>
-        <a href="https://www.nlmmusicgroupafrica.co.za/#home" class="btn btn-primary" target="_blank">Learn More</a>
+        
+        <div class="family-members">
+          <div class="family-member">
+            <img src="ar.png" alt="Founder">
+            <h3>Founder</h3>
+            <p>Ailwei Maduna Wa Malada</p>
+          </div>
+        </div>
+        
+        <a href="https://www.nlmmusicgroupafrica.co.za/#home" class="btn btn-primary" style="margin-top: 40px;" target="_blank">Learn More</a>
       </div>
     </section>
   </div>
 
-  <!-- MUSIC PAGE (all releases: Dead Souls, Dimensions, Tonton) -->
+  <!-- Music Page -->
   <div id="music" class="page-content">
     <section class="section">
       <div class="container">
         <h2 class="section-title">Music</h2>
+        
         <div class="music-platforms">
-          <div class="platform-card"><i class="fab fa-spotify platform-icon"></i><h3>Spotify</h3><a href="https://open.spotify.com/artist/2jjoBPEyzPItVkLhCLXx93" class="platform-btn" target="_blank">Listen</a></div>
-          <div class="platform-card"><i class="fab fa-apple platform-icon"></i><h3>Apple Music</h3><a href="https://music.apple.com/us/artist/deadip/1813830329" class="platform-btn" target="_blank">Listen</a></div>
-          <div class="platform-card"><i class="fas fa-compact-disc platform-icon"></i><h3>Beatport</h3><a href="https://www.beatport.com/artist/deadip/1313896" class="platform-btn" target="_blank">Listen</a></div>
+          <div class="platform-card">
+            <i class="fab fa-spotify platform-icon"></i>
+            <h3 class="platform-name">Spotify</h3>
+            <a href="https://open.spotify.com/artist/2jjoBPEyzPItVkLhCLXx93?si=iZqPN_X0TuGoynYkQNE6Gg" class="platform-btn" target="_blank">Listen</a>
+          </div>
+          
+          <div class="platform-card">
+            <i class="fab fa-apple platform-icon"></i>
+            <h3 class="platform-name">Apple</h3>
+            <a href="https://music.apple.com/us/artist/deadip/1813830329" class="platform-btn" target="_blank">Listen</a>
+          </div>
+          
+          <div class="platform-card">
+            <i class="fas fa-compact-disc platform-icon"></i>
+            <h3 class="platform-name">Beatport</h3>
+            <a href="https://www.beatport.com/artist/deadip/1313896" class="platform-btn" target="_blank">Listen</a>
+          </div>
+          
+          <div class="platform-card">
+            <i class="fas fa-music platform-icon"></i>
+            <h3 class="platform-name">Traxsource</h3>
+            <a href="https://www.traxsource.com/artist/939909/deadip" class="platform-btn" target="_blank">Listen</a>
+          </div>
         </div>
 
-        <!-- Dead Souls EP (latest) -->
+        <!-- Dead Souls EP -->
         <div class="release-card">
-          <img src="5.jpg" alt="Dead Souls EP" class="release-image" onerror="this.src='https://via.placeholder.com/280?text=Dead+Souls'">
+          <img src="5.jpg" alt="Dead Souls EP" class="release-image">
           <div class="release-info">
             <h3 class="release-title">Dead Souls EP</h3>
-            <p class="release-description">A primal fusion of tribal rhythms, ancient chants and ritualistic drums, woven with futuristic textures. Every beat calls to the soul.</p>
-            <a href="https://www.mediafire.com/file/gaouocfkczth8d5/DeADip_-_Dead_Souls_EP.zip/file" class="btn btn-primary" target="_blank">Download EP</a>
+            <p class="release-description">
+              Dead Souls is a hypnotic journey into the primal heartbeat of the earth from visionary artist DeADip. This EP fuses raw tribal rhythms, ancient chants, and ritualistic drumming with modern electronic textures, creating a sound that feels both ancestral and otherworldly. Each track pulses with the energy of ceremonial fires and the haunting echoes of spirits long forgotten.
+            </p>
+            <div class="release-links">
+              <a href="https://www.mediafire.com/file/gaouocfkczth8d5/DeADip_-_Dead_Souls_EP.zip/file" class="btn btn-primary" target="_blank">Download EP</a>
+            </div>
           </div>
         </div>
-        <!-- Dimensions Bootleg -->
+        
+        <!-- Dimensions (DeADip Bootleg) -->
         <div class="release-card">
-          <img src="4.jpg" alt="Dimensions Bootleg" class="release-image" onerror="this.src='https://via.placeholder.com/280?text=Dimensions'">
+          <img src="4.jpg" alt="Dimensions (DeADip Bootleg)" class="release-image">
           <div class="release-info">
             <h3 class="release-title">Dimensions (DeADip Bootleg)</h3>
-            <p class="release-description">Ancestral rhythms meet rolling basslines. DeADip reworks the Black Motion & Shimza classic with warm pads and tribal energy — a portal between worlds.</p>
-            <a href="https://www.mediafire.com/file/j1h94iui66xkym7/Black_Motion_%2526_Shimza_Feat._Lando_-_Dimensions%2528DeADip_Bootleg%2529.zip/file" class="btn btn-primary" target="_blank">Download</a>
+            <p class="release-description">
+              Dimensions (DeADip Bootleg) is a deep, hypnotic journey where ancestral rhythms meet futuristic grooves. DeADip reimagines the Black Motion & Shimza classic with warm pads, rolling basslines, and tribal energy—opening a portal between the spiritual and the dancefloor.
+            </p>
+            <div class="release-links">
+              <a href="https://www.mediafire.com/file/j1h94iui66xkym7/Black_Motion_%2526_Shimza_Feat._Lando_-_Dimensions%2528DeADip_Bootleg%2529.zip/file" class="btn btn-primary" target="_blank">Download Single</a>
+            </div>
           </div>
         </div>
-        <!-- Tonton single -->
+
+        <!-- Tonton Single -->
         <div class="release-card">
-          <img src="3.jpg" alt="Tonton Single" class="release-image" onerror="this.src='https://via.placeholder.com/280?text=Tonton'">
+          <img src="3.jpg" alt="Tonton Single" class="release-image">
           <div class="release-info">
-            <h3 class="release-title">Tonton (DeADip Tribal Remix)</h3>
-            <p class="release-description">Salif Keita's soulful vocals recontextualised into a percussion-driven Tribal House groove. Electronic drums, congas, and shakers forge a hypnotic, global club track.</p>
-            <a href="https://www.mediafire.com/file/f5eg3vffohscddy/Salif_Keita_-_Tonton%2528DeADip_Bootleg%2529.wav/file" class="btn btn-primary" target="_blank">Download Single</a>
+            <h3 class="release-title">Tonton Single</h3>
+            <p class="release-description">
+              DeADip's Tribal Remix of Salif Keita's "Tonton" reimagines the Malian legend's classic with intense percussion and deep house grooves, creating a hypnotic dancefloor experience that blends ancient African vocals with futuristic electronic textures.
+            </p>
+            <div class="release-links">
+              <a href="https://www.mediafire.com/file/f5eg3vffohscddy/Salif_Keita_-_Tonton%2528DeADip_Bootleg%2529.wav/file" class="btn btn-primary" target="_blank">Download Single</a>
+            </div>
           </div>
         </div>
       </div>
     </section>
   </div>
 
-  <!-- ABOUT PAGE -->
+  <!-- About Page -->
   <div id="about" class="page-content">
     <section class="section">
       <div class="container">
         <h2 class="section-title">About</h2>
+        
         <div class="about-container">
-          <div class="about-card floating"><img src="1.jpg" alt="DeADip" onerror="this.src='https://via.placeholder.com/120'"><h3>DeADip</h3><p>Genre-blending artist</p></div>
-          <div class="about-card floating"><img src="2.png" alt="NLM" onerror="this.src='https://via.placeholder.com/120'"><h3>NLM Music Group</h3><p>African Electronic Label</p></div>
+          <div class="about-card floating">
+            <img src="1.jpg" alt="DeADip">
+            <h3>DeADip</h3>
+            <p>Genre-blending Electronic Artist</p>
+          </div>
+          
+          <div class="about-card floating">
+            <img src="2.png" alt="NLM Music Group">
+            <h3>NLM Music Group Africa</h3>
+            <p>African Electronic Music Label</p>
+          </div>
         </div>
-        <div style="max-width:800px; margin:60px auto; background:var(--card-bg); padding:40px; border-radius:15px; border:1px solid var(--border);">
-          <h3 style="color:var(--accent); margin-bottom:20px;">Our Story</h3>
-          <p style="color:var(--light-text); line-height:1.8;">DeADip fuses African rhythms with Tribal House and Deep Tech. Signed to NLM Music Group Africa (founded 2025 by Ailwei Maduna Wa Malada, in honour of his mother Ntampose Lettia Maduna). Together we push African electronic music to the global stage.</p>
+        
+        <div style="max-width: 800px; margin: 60px auto 0; background: var(--card-bg); padding: 40px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); border: 1px solid var(--border);">
+          <h3 style="text-align: center; margin-bottom: 20px; color: var(--accent);">Our Story</h3>
+          <p style="color: var(--light-text); line-height: 1.8; text-align: center;">
+            DeADip is a pioneering electronic music artist who fuses African rhythms with cutting-edge Tribal House and Deep Tech production. Signed to NLM Music Group Africa, a label founded in 2025 by Ailwei Maduna Wa Malada in honor of his mother, Ntampose Lettia Maduna. Together, we're pushing the boundaries of African electronic music and bringing its unique sound to the global stage.
+          </p>
         </div>
       </div>
     </section>
   </div>
 
-  <!-- BOOKINGS PAGE – professional contact details -->
+  <!-- Bookings Page -->
   <div id="bookings" class="page-content">
     <section class="section">
       <div class="container">
         <h2 class="section-title">Bookings & Contact</h2>
-        <div class="booking-card">
-          <div class="contact-row">
-            <div class="contact-icon-large"><i class="far fa-envelope"></i></div>
-            <div class="contact-detail">
-              <div class="label">Email</div>
-              <div class="value"><a href="mailto:officialnlmmusicgroupafrica@gmail.com">officialnlmmusicgroupafrica@gmail.com</a></div>
+        <div style="max-width: 600px; margin: 0 auto; text-align: center; background: var(--card-bg); padding: 40px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); border: 1px solid var(--border); backdrop-filter: blur(10px);">
+          <p style="margin-bottom: 30px; color: var(--light-text);">
+            For bookings, collaborations, or general inquiries, reach out to us through any of these channels:
+          </p>
+          
+          <div class="contact-icons">
+            <div class="contact-icon">
+              <a href="mailto:officialnlmmusicgroupafrica@gmail.com" target="_blank">
+                <i class="far fa-envelope"></i>
+              </a>
+              <span>Email Us</span>
+            </div>
+            
+            <div class="contact-icon">
+              <a href="https://wa.me/0813398293" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+              </a>
+              <span>WhatsApp</span>
+            </div>
+            
+            <div class="contact-icon">
+              <a href="tel:0813398293" target="_blank">
+                <i class="fas fa-phone"></i>
+              </a>
+              <span>Call Us</span>
             </div>
           </div>
-          <div class="contact-row">
-            <div class="contact-icon-large"><i class="fas fa-phone-alt"></i></div>
-            <div class="contact-detail">
-              <div class="label">Phone / WhatsApp</div>
-              <div class="value"><a href="tel:0813398293">081 339 8293</a>  ( <a href="https://wa.me/0813398293">WhatsApp</a> )</div>
-            </div>
-          </div>
-          <div class="contact-row">
-            <div class="contact-icon-large"><i class="fas fa-building"></i></div>
-            <div class="contact-detail">
-              <div class="label">Management</div>
-              <div class="value">NLM Music Group Africa</div>
-            </div>
-          </div>
-          <div class="credit">
-            <p>📌 Professional inquiries only.  |  Created by <a href="https://www.mwmtechnologies.co.za/" target="_blank"><strong>MWM Technologies</strong></a></p>
+
+          <!-- Professional contact details -->
+          <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border);">
+            <p style="color: var(--light-text); margin-bottom: 10px;"><strong style="color: var(--accent);">Email:</strong> <a href="mailto:officialnlmmusicgroupafrica@gmail.com" style="color: var(--text);">officialnlmmusicgroupafrica@gmail.com</a></p>
+            <p style="color: var(--light-text);"><strong style="color: var(--accent);">Phone / WhatsApp:</strong> <a href="tel:0813398293" style="color: var(--text);">081 339 8293</a></p>
           </div>
         </div>
       </div>
@@ -789,32 +1260,72 @@
         <a href="#" onclick="showPage('about')">About</a>
         <a href="#" onclick="showPage('bookings')">Bookings</a>
       </div>
+      
       <div class="icon-only">
-        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="To Be Confirmed" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="To Be Confirmed" target="_blank"><i class="fab fa-tiktok"></i></a>
         <a href="https://youtube.com/@deadipmusic?si=Rv8bh3CxC24CDMXU" target="_blank"><i class="fab fa-youtube"></i></a>
-        <a href="https://open.spotify.com/artist/2jjoBPEyzPItVkLhCLXx93" target="_blank"><i class="fab fa-spotify"></i></a>
+        <a href="https://open.spotify.com/artist/2jjoBPEyzPItVkLhCLXx93?si=iZqPN_X0TuGoynYkQNE6Gg" target="_blank"><i class="fab fa-spotify"></i></a>
         <a href="https://music.apple.com/us/artist/deadip/1813830329" target="_blank"><i class="fab fa-apple"></i></a>
       </div>
-      <p style="color:var(--light-text); margin-top:30px;">© 2025 DeADip & NLM Music Group Africa. All rights reserved.</p>
-      <p style="font-size:0.8rem; opacity:0.7;">site by <a href="https://www.mwmtechnologies.co.za/" target="_blank" style="color:var(--electric-blue);">MWM Technologies</a></p>
+
+      <!-- Created by MWM Technologies -->
+      <p style="margin-top: 20px; color: var(--light-text); font-size: 0.8rem;">
+        Created by <a href="https://www.mwmtechnologies.co.za/" target="_blank" style="color: var(--accent);">MWM Technologies</a>
+      </p>
+      
+      <p style="margin-top: 10px; color: var(--light-text); font-size: 0.8rem;">
+        &copy; 2025 DeADip & NLM Music Group Africa. All rights reserved.
+      </p>
     </div>
   </footer>
 
   <script>
+    // Function to show the selected page and hide others
     function showPage(pageId) {
-      document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
+      // Hide all pages
+      document.querySelectorAll('.page-content').forEach(page => {
+        page.classList.remove('active');
+      });
+      
+      // Show the selected page
       document.getElementById(pageId).classList.add('active');
-      window.location.hash = pageId;
+      
+      // Scroll to top
       window.scrollTo(0, 0);
+      
+      // Update URL hash
+      window.location.hash = pageId;
     }
-    window.addEventListener('DOMContentLoaded', () => {
-      const hash = location.hash.substring(1);
-      if (hash && document.getElementById(hash)) showPage(hash);
-      else showPage('home');
+    
+    // Check URL hash on page load
+    window.addEventListener('DOMContentLoaded', function() {
+      const hash = window.location.hash.substring(1);
+      if (hash && document.getElementById(hash)) {
+        showPage(hash);
+      } else {
+        showPage('home');
+      }
     });
-    window.addEventListener('scroll', () => {
-      document.querySelector('header').style.padding = window.scrollY > 100 ? '10px 0' : '15px 0';
+
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 100) {
+        header.style.padding = '10px 0';
+        header.style.boxShadow = '0 5px 15px rgba(0,0,0,0.3)';
+      } else {
+        header.style.padding = '15px 0';
+        header.style.boxShadow = 'none';
+      }
+    });
+
+    // Add floating animation to multiple elements
+    document.addEventListener('DOMContentLoaded', function() {
+      const floatingElements = document.querySelectorAll('.floating');
+      floatingElements.forEach((el, index) => {
+        el.style.animationDelay = `${index * 0.2}s`;
+      });
     });
   </script>
 </body>
